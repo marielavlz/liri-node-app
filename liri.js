@@ -5,6 +5,7 @@ var request = require('request');
 var action = process.argv[2];
 var value = process.argv[3];
 var keys = require('./keys.js');
+var omdbKey = keys.omdbKeys
 
 var params = {
     screen_name: 'mari_withani',
@@ -64,6 +65,7 @@ function twitter(){
 
 //Spotify Function
 function spotifySong(value) {
+  
   if (value === undefined){
     value = "Smells like Teen Spirit"; 
   }
@@ -107,8 +109,8 @@ function movie() {
 var movieName = value;
 var movieDefault = "Forrest Gump";
 // search variables
-var queryURL = 'http://www.omdbapi.com/?t=' + movieName + '&y=&plot=short&r=json';
-var urlDefault = 'http://www.omdbapi.com/?t=' + movieDefault + '&y=&plot=short&r=json';
+var queryURL = 'http://www.omdbapi.com/?apikey=' + omdbKey + '&t=' + movieName + '&y=&plot=short&r=json';
+var urlDefault = 'http://www.omdbapi.com/?apikey=' + omdbKey + '&t=' + movieDefault + '&y=&plot=short&r=json';
 
  // if the user entered a title, search that
  if (movieName != null) {
